@@ -6,6 +6,6 @@ public class GridSystem : MonoBehaviour {
 
     private void CreateGrid(float x, float y, TileScript.TileType type)
     {
-
+        //something
     }
 }
