@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid
+public class GridSystem
 {
     /// <summary>
     /// The tiles for this grid.
@@ -12,17 +12,21 @@ public class Grid
     /// Constructor.
     /// </summary>
     /// <param name="width">Width of the grid (amount of columns)</param>
-    /// <param name="height">Height of the grid (amount ofrows)</param>
-    public Grid(int width, int height)
+    /// <param name="height">Height of the grid (amount of rows)</param>
+    public GridSystem(int width, int height)
     {
+
         if (width < 0 || height < 0)
         {
-            throw new System.InvalidOperationException("width and height cannot be smaller than zero");
+            throw new System.InvalidOperationException("Width and height cannot be smaller than zero.");
         }
+
+        
+
 
         Width = width;
         Height = height;
-
+        IsOnGrid(width, height);
         _grid = new Tile[Width, Height];
 
         // x axis
@@ -55,10 +59,9 @@ public class Grid
     /// <returns></returns>
     public Tile GetTile(int x, int y)
     {
-
-        return _grid[x, y];
-
+            return _grid[x, y];
     }
+    
 
     /// <summary>
     /// Determines if a x & y position is within the grid
@@ -68,11 +71,18 @@ public class Grid
     /// <returns></returns>
     public bool IsOnGrid(int x, int y)
     {
+        if (x > Width || y > Height)
+        {
+            Debug.Log(x);
+            Debug.Log(Width);
+            Debug.Log(y);
+            Debug.Log(Height);
+            throw new System.InvalidOperationException("Width and height cannot be larger than the grid size");
+        } else
+        {
+            return true;
+        }
         
-
-		// todo: nu return ik altijd true. Zorg ervoor dat er echt gecheckt wordt of de x en y binnen het grid vallen
-
-		return true;
     }
 		
 }
