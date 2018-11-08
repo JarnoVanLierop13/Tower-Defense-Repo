@@ -73,10 +73,6 @@ public class GridSystem
     {
         if (x > Width || y > Height)
         {
-            Debug.Log(x);
-            Debug.Log(Width);
-            Debug.Log(y);
-            Debug.Log(Height);
             throw new System.InvalidOperationException("Width and height cannot be larger than the grid size");
         } else
         {
