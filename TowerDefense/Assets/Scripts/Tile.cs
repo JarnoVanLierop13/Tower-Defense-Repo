@@ -8,9 +8,9 @@ public class Tile {
 		Position = position;
 		Type = type;
 		IsBlocking = isBlocking;
-	}
+    }
 
-	public Vector2 Position { get; set; }
+    public Vector2 Position { get; set; }
 
 	public string Type { get; set; }
 
