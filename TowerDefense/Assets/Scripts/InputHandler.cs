@@ -18,4 +18,13 @@ public class InputHandler : MonoBehaviour {
             return true;
         } else { return false; }
     }
+
+    public static bool IsEscapePressed()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) == true)
+        {
+            return true;
+        }
+        else { return false; }
+    }
 }
