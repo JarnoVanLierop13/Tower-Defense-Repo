@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GreenTile
   - BrownTile
+  - Enemy
   layers:
   - Default
   - TransparentFX
