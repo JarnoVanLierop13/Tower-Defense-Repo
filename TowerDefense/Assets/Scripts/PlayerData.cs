@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerData {
 
     private int playerPoints;
     [SerializeField]
     private int playerHealth;
-
-    public GameManagerNew menuCode = new GameManagerNew();
 
     public void SetData()
     {
@@ -26,7 +25,7 @@ public class PlayerData {
     {
         if (playerHealth <= 0)
         {
-            menuCode.ChangeScene("GameOver");
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
     }
 }
