@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour {
 
     public float speed;
 
+   public PlayerData playerData = new PlayerData();
+
     private Transform target;
     private int waypointIndex = 0;
 
@@ -19,7 +21,7 @@ public class Enemy : MonoBehaviour {
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+        if (Vector3.Distance(transform.position, target.position) <= 0.05f)
         {
             GetNextWaypoint();
         }
@@ -29,17 +31,18 @@ public class Enemy : MonoBehaviour {
     {
         if (waypointIndex >= WayPoints.locations.Length - 1)
         {
-            EnemyDeath();
+            EnemyIncoming();
+            return;
         }
 
         waypointIndex++;
         target = WayPoints.locations[waypointIndex];
     }
 
-    private void EnemyDeath()
+    private void EnemyIncoming()
     {
+        playerData.EnemyReachedEnd();
         Destroy(gameObject);
-        return;
     }
-
+    
 }
