@@ -9,7 +9,7 @@ public class PlayerData {
     [SerializeField]
     private int playerHealth;
 
-    public MenuComponents menuCode = new MenuComponents();
+    public GameManagerNew menuCode = new GameManagerNew();
 
     public void SetData()
     {
@@ -26,7 +26,7 @@ public class PlayerData {
     {
         if (playerHealth <= 0)
         {
-            MenuComponents.ChangeScene("GameOver");
+            menuCode.ChangeScene("GameOver");
         }
     }
 }
