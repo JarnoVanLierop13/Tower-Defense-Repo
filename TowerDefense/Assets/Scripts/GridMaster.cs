@@ -80,6 +80,7 @@ public class GridMaster : MonoBehaviour {
         else if (gridSize == 0)
         {
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.AddComponent<Node>();
             cube.GetComponent<Renderer>().material.color = greenTile;
             cube.name = "Green Tile";
             cube.tag = "GreenTile";
