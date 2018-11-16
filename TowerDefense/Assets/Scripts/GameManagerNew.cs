@@ -1,20 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManagerNew : MonoBehaviour {
 
     public PlayerData playerData = new PlayerData();
+    public Text displayedScore;
 
     private void Awake()
     {
-        playerData.SetData();
+        playerData.SetStartData(550, 3);
     }
 
-    void Update () {
+    private void Update () {
         playerData.IsDead();
+        SetScore();
 	}
 
     public void EndGame()
@@ -35,4 +35,11 @@ public class GameManagerNew : MonoBehaviour {
         }
 
     }
+
+    private void SetScore()
+    {
+        displayedScore.text = "Score: " + playerData.playerPoints;
+    }
+
+    
 }

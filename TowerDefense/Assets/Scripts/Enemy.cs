@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour {
 
     private Transform target;
     private int waypointIndex = 0;
+    public int enemyHP;
+    
 
     private void Start()
     {
@@ -18,6 +20,8 @@ public class Enemy : MonoBehaviour {
 
     private void Update()
     {
+        EnemyDead();
+
         Vector3 directionTowardsNextWayPoint = target.position - transform.position;
         transform.Translate(directionTowardsNextWayPoint.normalized * speed * Time.deltaTime, Space.World);
 
@@ -37,6 +41,15 @@ public class Enemy : MonoBehaviour {
 
         waypointIndex++;
         target = WayPoints.locations[waypointIndex];
+    }
+
+    private void EnemyDead()
+    {
+        if (enemyHP <= 0)
+        {
+            playerData.GivePoints(50);
+            Destroy(this.gameObject);
+        }
     }
 
     private void EnemyIncoming()

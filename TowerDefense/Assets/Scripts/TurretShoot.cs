@@ -54,6 +54,9 @@ public class TurretShoot : MonoBehaviour {
 
         if (target != null)
         {
+
+            // code werkt niet helemaal goed en geen tijd meer om te fixen dus dan zonder tower rotation, hij werkt nog steeds prima
+
             /*
             Vector3 dir = target.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(dir);

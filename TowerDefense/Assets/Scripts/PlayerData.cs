@@ -6,14 +6,18 @@ using UnityEngine.UI;
 
 public class PlayerData {
 
-    private int playerPoints;
-    [SerializeField]
+    public int playerPoints;
     private int playerHealth;
 
-    public void SetData()
+    public void SetStartData(int points, int health)
     {
-        playerPoints = 550;
-        playerHealth = 3;
+        playerPoints = points;
+        playerHealth = health;
+    }
+
+    public void GivePoints(int amount)
+    {
+        playerPoints += amount;
     }
 
     public void EnemyReachedEnd()

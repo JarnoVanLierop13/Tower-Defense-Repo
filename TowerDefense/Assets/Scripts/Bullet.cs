@@ -5,6 +5,13 @@ public class Bullet : MonoBehaviour {
     private Transform target;
 
     public float speed = 70f;
+    private Enemy enemyAccess;
+
+    private void Awake()
+    {
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+        enemyAccess = enemy.GetComponent<Enemy>();
+    }
 
     public void Seek(Transform _target)
     {
@@ -31,12 +38,18 @@ public class Bullet : MonoBehaviour {
         }
 
         transform.Translate(dir.normalized * distancethisFrame, Space.World);
-
            
 	}
 
     void HitTarget()
     {
         Destroy(gameObject);
+        enemyAccess.enemyHP -= GetRandomNumber(29, 41);
+    }
+
+    private int GetRandomNumber(int lowestNumber, int highestNumber)
+    {
+        int randomNumber = Random.Range(lowestNumber, highestNumber);
+        return randomNumber;
     }
 }
