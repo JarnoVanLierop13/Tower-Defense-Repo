@@ -13,8 +13,8 @@ public class GameManagerNew : MonoBehaviour {
     }
 
     private void Update () {
-        playerData.IsDead();
         SetScore();
+        playerData.IsDead();
 	}
 
     public void EndGame()

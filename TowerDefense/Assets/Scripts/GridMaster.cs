@@ -8,7 +8,7 @@ public class GridMaster : MonoBehaviour {
     public int ySize = 10;
 
     public int[,] gridPreset = new int[10, 10]
-    {
+    { // aanmaken nieuw preset grid
         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
         { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
         { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 },
@@ -30,7 +30,7 @@ public class GridMaster : MonoBehaviour {
 
     private void CreateGrid(int x, int y)
     {
-        GridSystem myGrid = new GridSystem(x, y);
+        //GridSystem myGrid = new GridSystem(x, y); ///////////// dit was eerst om door middel van userimput een grid te kunnen maken ipv een preset (zie hieronder)
         int positionX = 0;
         int positionY = 0;
         for (int i = 0; i < y; i++)
@@ -47,12 +47,12 @@ public class GridMaster : MonoBehaviour {
 
     private void Awake()
     {
-        ClearMap();
+        ClearMap(); // hier wordt de array leeggehaald en dan weer gevuld, dit hadden we geimplementeerd omdat we eerst een soort levelbuilder wilden maken.
         CreateGrid(xSize, ySize);
     }
 
     void ClearMap()
-    {
+    { // haal de hele array leeg
         cubes = GameObject.FindGameObjectsWithTag("GreenTile");
         for (var i = 0; i < cubes.Length; i++)
         {
@@ -69,7 +69,7 @@ public class GridMaster : MonoBehaviour {
     private void GenerateTiles(int i, int j, int gridSize)
     {
         if (gridSize == 1)
-        {
+        { // het creeëren van de paden
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.GetComponent<Renderer>().material.color = brownTile;
             cube.name = "Brown Tile";
@@ -78,7 +78,7 @@ public class GridMaster : MonoBehaviour {
             cube.transform.parent = cubeHolder.transform;
         }
         else if (gridSize == 0)
-        {
+        { // het creeëren van de groene tiles
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.GetComponent<Renderer>().material.color = greenTile;
             cube.name = "Green Tile";

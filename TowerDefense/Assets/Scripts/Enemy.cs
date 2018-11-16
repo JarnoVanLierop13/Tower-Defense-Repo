@@ -6,7 +6,9 @@ public class Enemy : MonoBehaviour {
 
     public float speed;
 
-   public PlayerData playerData = new PlayerData();
+    // link niet naar playerData maar naar de playerData van GameManagerNew script
+    public PlayerData playerData;
+    
 
     private Transform target;
     private int waypointIndex = 0;
@@ -15,13 +17,17 @@ public class Enemy : MonoBehaviour {
 
     private void Start()
     {
+        // references en eerste waypoint aangegeven
         target = WayPoints.locations[0];
+        GameObject gameManagerObj = GameObject.Find("Managers/GameManager");
+        GameManagerNew gameManagerNew = gameManagerObj.GetComponent<GameManagerNew>();
+        playerData = gameManagerNew.playerData;
     }
 
     private void Update()
     {
         EnemyDead();
-
+        // movement richting waypoint
         Vector3 directionTowardsNextWayPoint = target.position - transform.position;
         transform.Translate(directionTowardsNextWayPoint.normalized * speed * Time.deltaTime, Space.World);
 
@@ -35,7 +41,7 @@ public class Enemy : MonoBehaviour {
     {
         if (waypointIndex >= WayPoints.locations.Length - 1)
         {
-            EnemyIncoming();
+            EnemyIncoming(); // als een enemy het einde bereikt
             return;
         }
 
@@ -48,7 +54,7 @@ public class Enemy : MonoBehaviour {
         if (enemyHP <= 0)
         {
             playerData.GivePoints(50);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 

@@ -23,7 +23,7 @@ public class MenuComponents : MonoBehaviour {
     }
 
     private void CheckPauseState()
-    {
+    { // checkt of de game gepauzeerd is en voert de nodige functie uit, zodat we niet 2 verschillende knoppen nodig hebben voor alleen pauze
         if (InputHandler.IsEscapePressed() == true && IsPaused == false)
         {
             PauseGame();

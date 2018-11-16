@@ -43,8 +43,8 @@ public class Bullet : MonoBehaviour {
 
     void HitTarget()
     {
-        Destroy(gameObject);
         enemyAccess.enemyHP -= GetRandomNumber(29, 41);
+        Destroy(gameObject);   
     }
 
     private int GetRandomNumber(int lowestNumber, int highestNumber)
