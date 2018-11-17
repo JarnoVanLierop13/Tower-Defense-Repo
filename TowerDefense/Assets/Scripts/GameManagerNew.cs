@@ -6,6 +6,7 @@ public class GameManagerNew : MonoBehaviour {
 
     public PlayerData playerData = new PlayerData();
     public Text displayedScore;
+    public Text displayedHP;
 
     private void Awake()
     {
@@ -31,7 +32,7 @@ public class GameManagerNew : MonoBehaviour {
         }
         else if (scenename == "GameOver")
         {
-            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
 
     }
@@ -39,6 +40,7 @@ public class GameManagerNew : MonoBehaviour {
     private void SetScore()
     {
         displayedScore.text = "Score: " + playerData.playerPoints;
+        displayedHP.text = "Lives: " + playerData.playerHealth;
     }
 
     

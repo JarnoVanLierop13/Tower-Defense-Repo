@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour {
 
     public float speed;
 
-    // link niet naar playerData maar naar de playerData van GameManagerNew script
     public PlayerData playerData;
     
 

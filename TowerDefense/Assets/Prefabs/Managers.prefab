@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayedScore: {fileID: 0}
+  displayedHP: {fileID: 0}
 --- !u!114 &114750869768894532
 MonoBehaviour:
   m_ObjectHideFlags: 1

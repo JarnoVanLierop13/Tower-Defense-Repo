@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerData {
 
     public int playerPoints;
-    private int playerHealth;
+    public int playerHealth;
 
     public void SetStartData(int points, int health)
     {
